@@ -31,6 +31,7 @@ class Solution:
         if(s.isspace()):
             return True
         
+        '''
         str = ''
         for c in s:
             if (c.isalpha() or c.isnumeric()):
@@ -42,3 +43,15 @@ class Solution:
             if(str[i] != str[length-1-i]):
                        return False
         return True
+        '''
+        
+        word = ''
+        for c in s:
+            if (c.isalnum()):
+                word += c
+        
+        word = word.lower()
+        if(word == word[::-1]):
+            return True
+        else:
+            return False
