@@ -39,11 +39,10 @@ class Solution:
         maxoutput = 0
         for i in range(0,len(nums)):
             if (i == 0):
-                output += 1
+                output = 1
             elif (nums[i] > nums[i-1]):
                 output += 1
             else:
-                maxoutput = max(output, maxoutput)
                 output = 1
             maxoutput = max(output, maxoutput)
         
