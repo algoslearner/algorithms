@@ -35,9 +35,10 @@ class Solution:
         if (len(nums) == 0):
             return 0
         
+        '''
         output = 0
         maxoutput = 0
-        for i in range(0,len(nums)):
+        for i in range(len(nums)):
             if (i == 0):
                 output = 1
             elif (nums[i] > nums[i-1]):
@@ -47,15 +48,14 @@ class Solution:
             maxoutput = max(output, maxoutput)
         
         return maxoutput
-
-       
- # Sliding Window solution
- '''
- class Solution(object):
-    def findLengthOfLCIS(self, nums):
-        ans = anchor = 0
+        '''
+        
+        #sliding window technique
+        maxoutput = 0
+        anchor = 0
         for i in range(len(nums)):
-            if i and nums[i-1] >= nums[i]: anchor = i
-            ans = max(ans, i - anchor + 1)
-        return ans
- '''
+            if (i != 0 and nums[i-1] >= nums[i]):
+                anchor = i
+            maxoutput = max(maxoutput, i - anchor + 1)
+        return maxoutput
+        
