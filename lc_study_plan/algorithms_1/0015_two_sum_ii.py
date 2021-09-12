@@ -32,3 +32,21 @@ numbers is sorted in non-decreasing order.
 -1000 <= target <= 1000
 The tests are generated such that there is exactly one solution.
 '''
+
+# TC : O(log n)
+# SC : O(1)
+
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        
+        start = 0
+        end = len(numbers) - 1
+        while(start <= end):
+            total = numbers[start] + numbers[end]
+            if(total == target):
+                return [start+1, end+1]
+            elif(total > target):
+                end -= 1
+            else:
+                start += 1
+        return []
