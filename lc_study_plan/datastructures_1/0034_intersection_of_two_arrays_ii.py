@@ -30,12 +30,13 @@ What if nums1's size is small compared to nums2's size? Which algorithm is bette
 What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
 '''
 
-# TC : O(n)
-# SC : O(n)
-
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
         
+        # HashMap
+        # TC : O(m+n)
+        # SC : O(n)
+        '''
         nums1map = {}
         nums2map = {}
         
@@ -55,3 +56,27 @@ class Solution:
                     k += 1
                     nums1map[i] = cnt - 1
         return nums1[:k]
+        '''
+        
+        # Sorted Array, then use binary search
+        # TC : O(nlogn)
+        # SC : O(logn)
+        nums1.sort()
+        nums2.sort()
+        i = 0
+        j = 0
+        k = 0
+        
+        while(i < len(nums1) and j < len(nums2) and k < len(nums1)):
+            if(nums1[i] < nums2[j]):
+                i += 1
+            elif (nums2[j] < nums1[i]):
+                j += 1
+            else:
+                nums1[k] = nums1[i]
+                i += 1
+                j += 1
+                k += 1
+        return nums1[:k]
+                
+        
