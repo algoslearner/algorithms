@@ -33,3 +33,20 @@ Constraints:
 s consists of English letters, digits, symbols and spaces.
 '''
 
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        
+        if len(s) == None or len(s) == 0: 
+            return 0
+        
+        length = 0
+        hashmap = {}
+        windowStart = 0
+        for windowEnd in range(len(s)):
+            c = s[windowEnd]
+            if c in hashmap:
+                if hashmap.get(c) >= windowStart:
+                    windowStart = hashmap.get(c) + 1
+            length = max(length, windowEnd - windowStart+1)
+            hashmap[c] = windowEnd
+        return length
