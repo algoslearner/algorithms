@@ -42,6 +42,9 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        # in-built heapsort
+        # TC : O(n logn)
+        # SC : O(n)
         # nums.sort()
         
         # TC : O(n)
@@ -90,4 +93,3 @@ class Solution:
                 high -= 1
             else:
                 i += 1
-     
