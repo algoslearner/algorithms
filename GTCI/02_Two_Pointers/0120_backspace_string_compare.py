@@ -40,8 +40,49 @@ Follow up: Can you solve it in O(n) time and O(1) space?
 
 class Solution:
     def backspaceCompare(self, s: str, t: str) -> bool:
+        '''
         return self.check(s) == self.check(t)
+        '''
+        
+        # two pointers
+        # TC : O(n)
+        # SC : O(1)
+        index1 = len(s) - 1
+        index2 = len(t) - 1
+        while index1 >= 0 and index2 >= 0 :
+            i1 = self.getNextValidIndex(s, index1)
+            i2 = self.getNextValidIndex(t, index2)
+            
+            #print(i1)
+            #print(i2)
+            if i1 < 0 and i2 < 0:
+                return True
+            if i1 < 0 or i2 < 0:
+                return False
+            if s[i1] != t[i2]:
+                return False
+            index1 = i1 - 1
+            index2 = i2 - 1
+        return True
     
+    def getNextValidIndex(self, str1: str, i: int) -> int:
+        back = 0
+        while i >= 0:
+            if str1[i] == '#':
+                back += 1
+            elif back > 0:
+                back -= 1
+            else:
+                break
+            i -= 1
+        print(i)
+        return i
+            
+    
+    # using stack
+    # TC : O(n)
+    # SC : O(1)
+    '''
     def check(self, word: str) -> str:
         result = []
         for c in word:
@@ -51,4 +92,4 @@ class Solution:
                 if result:
                     result.pop()
         return "".join(result)
-        
+    '''
