@@ -38,20 +38,17 @@ In the second case, only 11 additional diner is able to join the table, by sitti
 
 # TC : O(n)
 # SC : O(1)
+
 from typing import List
 import math
-# Write any import statements here
 
 def getMaxAdditionalDinersCount(N: int, K: int, M: int, S: List[int]) -> int:
 
-  #edge cases
-  if N <= len(S): return 0
-  if M == 0 and N != 0: return math.floor(N/K)
-  
   S.sort()
   start = 1
   guests = 0
   diff = 0
+  
   for end in S:
     diff = end - start
     guests += math.floor(diff / (K + 1))
@@ -59,5 +56,5 @@ def getMaxAdditionalDinersCount(N: int, K: int, M: int, S: List[int]) -> int:
   
   diff = N - start + 1
   guests += math.ceil(diff / (K + 1))
+  
   return guests
-      
