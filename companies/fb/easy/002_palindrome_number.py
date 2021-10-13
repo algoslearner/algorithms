@@ -43,9 +43,21 @@ class Solution:
         if x < 0: return False
         
         # convert into string
+        '''
         s = str(x)
         for i in range(0, int(len(s)/2)):
             if s[i] != s[-1-i]:
                 return False
         return True
+        '''
+        
+        # reverted number
+         
+        reverse = 0
+        givennum = x
+        while givennum >= 1:
+            lastdigit = int(givennum % 10)
+            reverse = reverse * 10 + lastdigit
+            givennum /= 10
+        return x == reverse
         
