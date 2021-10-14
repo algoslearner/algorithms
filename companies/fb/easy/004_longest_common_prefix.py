@@ -24,3 +24,24 @@ Constraints:
 0 <= strs[i].length <= 200
 strs[i] consists of only lower-case English letters.
 '''
+
+# TC : O(n)
+# SC : O(1)
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        if len(strs) == 1: return strs[0]
+        
+        prefix = ""
+        firstword = strs[0]
+        mismatch = 0
+        for i in range(len(firstword)):
+            for s in strs:
+                if i >= len(s) or firstword[i] != s[i]:
+                    mismatch = 1
+                    break
+            if mismatch == 0:
+                prefix += firstword[i]
+            else:
+                break
+        return prefix
