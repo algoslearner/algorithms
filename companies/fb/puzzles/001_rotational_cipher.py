@@ -25,20 +25,22 @@ Need hints?
 # TC ; o(n)
 # SC : O(1)
 
-class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
-        if len(strs) == 1: return strs[0]
-        
-        prefix = ""
-        firstword = strs[0]
-        mismatch = 0
-        for i in range(len(firstword)):
-            for s in strs:
-                if i >= len(s) or firstword[i] != s[i]:
-                    mismatch = 1
-                    break
-            if mismatch == 0:
-                prefix += firstword[i]
-            else:
-                break
-        return prefix
+def rotationalCipher(input, rotation_factor):
+  # Write your code here
+  result = ""
+  for c in input:
+    if c.isdigit():
+      newdigit = int(c) + rotation_factor
+      result += str(newdigit)[-1]
+    elif c.isalpha():
+      if c.isupper():
+        originalPosition = ord(c) - ord('A')
+        newPosition = ((originalPosition + rotation_factor) % 26) + ord('A')
+        result += chr(newPosition)
+      elif c.islower():
+        originalPosition = ord(c) - ord('a')
+        newPosition = ((originalPosition + rotation_factor) % 26) + ord('a')
+        result += chr(newPosition)
+    else:
+      result += c
+  return result
