@@ -31,34 +31,26 @@ Constraints:
 order.length == 26
 All characters in words[i] and order are English lowercase letters.
 '''
+# TC : O(N*M)
+# SC : O(N)
 
-def isAlienSorted(self, words, order):
-        """
-        :type words: List[str]
-        :type order: str
-        :rtype: bool
-        """
-        # Create index for the relative order of the characters in Alien alphabet.
-        order_map = { c:i for (i, c) in enumerate(order)}
+class Solution:
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
         
-        # Compare adjacent elements in the given words list and if
-        # any of them don't follow a <= b , return False
+        # add order into a map
+        orderMap = {c:i for i,c in enumerate(order)}
         
-        for i in xrange(len(words)-1):
-            first, second = words[i], words[i+1]
+        #convert words to index numbers
+        words2 = []
+        for w in words:
+            tmp = []
+            for ch in w:
+                tmp.append(orderMap[ch])
+            words2.append(tmp)
             
-            
-            for j in xrange(min(len(first), len(second))):
-                if first[j] != second[j]:
-                    # We got the first mismatch. Check the relative order and break.
-                    if order_map[first[j]] > order_map[second[j]]:
-                        return False
-                    break
-            else:
-                # We finished the loop and did not find any difference.
-                # Else is run when break did not happen above. That means no difference was found.
-                # This can happen for ex: "app" and "apply".
-                if len(first) > len(second):
-                    return False
-                
+        #compare num lists
+        for n in range(1,len(words2)):
+            if words2[n-1] > words2[n]: return False
         return True
+        
+                    
