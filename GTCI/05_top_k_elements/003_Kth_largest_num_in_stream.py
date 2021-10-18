@@ -45,3 +45,10 @@ def main():
 
 main()
 
+'''
+Time complexity#
+The time complexity of the add() function will be O(logK)O(logK) since we are inserting the new number in the heap.
+
+Space complexity#
+The space complexity will be O(K)O(K) for storing numbers in the heap.
+'''
