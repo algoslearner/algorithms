@@ -21,7 +21,11 @@ Explanation: a -> b -> idle -> idle -> a
 Solution#
 This problem follows the Top ‘K’ Elements pattern and is quite similar to Rearrange String K Distance Apart. We need to rearrange tasks such that same tasks are ‘K’ distance apart.
 
-Following a similar approach, we will use a Max Heap to execute the highest frequency task first. After executing a task we decrease its frequency and put it in a waiting list. In each iteration, we will try to execute as many as k+1 tasks. For the next iteration, we will put all the waiting tasks back in the Max Heap. If, for any iteration, we are not able to execute k+1 tasks, the CPU has to remain idle for the remaining time in the next iteration.
+Following a similar approach, we will use a Max Heap to execute the highest frequency task first. 
+After executing a task we decrease its frequency and put it in a waiting list. 
+In each iteration, we will try to execute as many as k+1 tasks. 
+For the next iteration, we will put all the waiting tasks back in the Max Heap. 
+If, for any iteration, we are not able to execute k+1 tasks, the CPU has to remain idle for the remaining time in the next iteration.
 '''
 
 from heapq import *
