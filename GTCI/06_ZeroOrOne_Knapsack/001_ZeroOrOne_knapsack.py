@@ -1,5 +1,5 @@
 
-[0/1 Knapsack (medium)](https://www.educative.io/courses/grokking-the-coding-interview/gkZNLjV2kBk)
+# [0/1 Knapsack (medium)](https://www.educative.io/courses/grokking-the-coding-interview/gkZNLjV2kBk)
 
 '''
 Introduction#
