@@ -1,5 +1,6 @@
 '''
-0/1 Knapsack (medium)
+[0/1 Knapsack (medium)](https://www.educative.io/courses/grokking-the-coding-interview/gkZNLjV2kBk)
+
 
 Introduction#
 Given the weights and profits of ‘N’ items, we are asked to put these items in a knapsack with a capacity ‘C.’ The goal is to get the maximum profit out of the knapsack items. Each item can only be selected once, as we don’t have multiple quantities of any item.
